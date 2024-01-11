@@ -21,8 +21,11 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet add package NAudio
+      working-directory: ./snd2nub
+      run: dotnet restore
     - name: Build
+      working-directory: ./snd2nub
       run: dotnet build
     - name: Test
+      working-directory: ./snd2nub
       run: dotnet test --no-build --verbosity normal
