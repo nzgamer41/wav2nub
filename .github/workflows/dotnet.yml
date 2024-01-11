@@ -22,7 +22,7 @@ jobs:
         dotnet-version: 5.0.x
     - name: Restore dependencies
       working-directory: ./snd2nub
-      run: dotnet restore
+      run: dotnet add package NAudio
     - name: Build
       working-directory: ./snd2nub
       run: dotnet build
