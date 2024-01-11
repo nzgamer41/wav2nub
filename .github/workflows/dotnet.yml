@@ -21,7 +21,7 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet add package NAudio -p snd2nub.sln
+      run: dotnet add snd2nub package NAudio
     - name: Build
       run: dotnet build
     - name: Test
