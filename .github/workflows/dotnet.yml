@@ -24,8 +24,8 @@ jobs:
       uses: nuget/setup-nuget@v2
 
     - name: Restore NuGet packages
-      run: nuget restore wav2nub.sln
+      run: nuget restore snd2nub.sln
       
     - name: Build
-      run: msbuild wav2nub.sln
+      run: msbuild snd2nub.sln
       
