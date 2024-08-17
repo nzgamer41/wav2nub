@@ -1,4 +1,4 @@
-# This workflow will build a .NET project
+x# This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
 name: .NET
@@ -27,5 +27,9 @@ jobs:
       run: nuget restore snd2nub.sln
       
     - name: Build
-      run: msbuild snd2nub.sln
+      run: msbuild snd2nub.sln -property:Configuration=Release
       
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        path: ./bin/Release
