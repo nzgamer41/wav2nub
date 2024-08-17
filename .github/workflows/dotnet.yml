@@ -1,0 +1,32 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: windows-2019
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Setup NuGet.exe
+      uses: nuget/setup-nuget@v2
+
+    - name: Restore NuGet packages
+      run: nuget restore snd2nub.sln
+      
+    - name: Build
+      run: msbuild snd2nub.sln -property:Configuration=Release
+      
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        path: ./snd2nub/bin/Release
